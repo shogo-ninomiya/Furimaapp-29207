@@ -16,6 +16,7 @@
 
 - has_many :items
 - has_many :comments
+- has_one :address
 
 ## items テーブル
 
@@ -30,6 +31,24 @@
 ### Association
 
 - has_many :comments
+- belongs_to :user
+- has_one :address
+
+## addresses テーブル
+
+| Column     | Type       | Options     |
+| ---------- | ---------- | ----------- |
+| post_code  | integer    | null: false |
+| pref       | string     | null: false |
+| block      | string     | null: false |
+| building   | string     | null: true  |
+| tellphone  | integer    | null: false |
+| item_id    | integer    | null: false |
+| user_id    | integer    | null: false |
+
+### Association
+
+- belongs_to :item
 - belongs_to :user
 
 ## comments テーブル
