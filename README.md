@@ -24,7 +24,6 @@
 | ------  | ---------- | ----------- |
 | name    | string     | null: false |
 | text    | image      | null: false |
-| image   | string     | null: false |
 | price   | integer    | null: false |
 | user_id | integer    | null: false |
 
