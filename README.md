@@ -10,7 +10,7 @@
 | name-hr  | string  | null: false |
 | name-kt  | string  | null: false |
 | name-kan | string  | null: false |
-| birthday | integer | null: false |
+| birthday | date    | null: false |
 
 ### Association
 
