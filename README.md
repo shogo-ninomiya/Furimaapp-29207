@@ -17,26 +17,29 @@
 
 - has_many :items
 - has_one :address
+- has_one :orders
 
 ## items テーブル
 
-| Column        | Type       | Options     |
-| ------------- | ---------- | ----------- |
-| name          | string     | null: false |
-| text          | image      | null: false |
-| price         | integer    | null: false |
-| category_id   | integer    | null: false |
-| status_id     | integer    | null: false |
-| delivery_id   | integer    | null: false |
-| area_id       | integer    | null: false |
-| day_id        | integer    | null: false |
-| user_id       | integer    | null: false |
+| Column             | Type       | Options     |
+| ------------------ | ---------- | ----------- |
+| name               | string     | null: false |
+| picture            | image      | null: false |
+| commnent           | string     | null: false |
+| price              | integer    | null: false |
+| category_id(activ) | integer    | null: false |
+| status_id(activ)   | integer    | null: false |
+| delivery_id(activ) | integer    | null: false |
+| area_id(activ)     | integer    | null: false |
+| day_id(activ)      | integer    | null: false |
+| user_id(activ)     | integer    | null: false |
 
 
 ### Association
 
 - belongs_to :user
 - has_one :address
+- has_one :orders
 
 ## addresses テーブル
 
@@ -47,15 +50,14 @@
 | block      | string     | null: false |
 | building   | string     | null: true  |
 | tellphone  | string     | null: false |
-| item_id    | integer    | null: false |
-| user_id    | integer    | null: false |
+| order_id   | integer    | null: false |
 
 ### Association
 
 - belongs_to :item
 - belongs_to :user
 
-### order テーブル
+### orders テーブル
 
 | Column     | Type       | Options     |
 | item_id    | integer    | null: false |
@@ -63,5 +65,5 @@
 
 ### Association
 
-has_one :user
-has_one :item
+belongs_to :user
+belongs_to :item
