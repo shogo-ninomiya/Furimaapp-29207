@@ -37,7 +37,7 @@
 
 | Column     | Type       | Options     |
 | ---------- | ---------- | ----------- |
-| post_code  | integer    | null: false |
+| post_code  | string     | null: false |
 | pref       | string     | null: false |
 | block      | string     | null: false |
 | building   | string     | null: true  |
