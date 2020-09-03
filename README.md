@@ -16,7 +16,6 @@
 ### Association
 
 - has_many :items
-- has_many :comments
 - has_one :address
 
 ## items テーブル
@@ -31,7 +30,6 @@
 
 ### Association
 
-- has_many :comments
 - belongs_to :user
 - has_one :address
 
@@ -52,15 +50,3 @@
 - belongs_to :item
 - belongs_to :user
 
-## comments テーブル
-
-| Column  | Type       | Options     |
-| ------  | ---------- | ----------- |
-| text    | string     | null: false |
-| item_id | integer    | null: false |
-| user_id | integer    | null: false |
-
-### Association
-
-- belongs_to :item
-- belongs_to :user
