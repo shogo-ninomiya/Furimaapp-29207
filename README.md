@@ -57,6 +57,7 @@
 ### orders テーブル
 
 | Column     | Type       | Options           |
+| ---------- | ---------- | ----------------- |
 | item_id    | integer    | foreign_key: true |
 | user_id    | integer    | foreign_key: true |
 
