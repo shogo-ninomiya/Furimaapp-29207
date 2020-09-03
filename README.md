@@ -20,12 +20,18 @@
 
 ## items テーブル
 
-| Column  | Type       | Options     |
-| ------  | ---------- | ----------- |
-| name    | string     | null: false |
-| text    | image      | null: false |
-| price   | integer    | null: false |
-| user_id | integer    | null: false |
+| Column        | Type       | Options     |
+| ------------- | ---------- | ----------- |
+| name          | string     | null: false |
+| text          | image      | null: false |
+| price         | integer    | null: false |
+| category_id   | integer    | null: false |
+| status_id     | integer    | null: false |
+| delivery_id   | integer    | null: false |
+| area_id       | integer    | null: false |
+| day_id        | integer    | null: false |
+| user_id       | integer    | null: false |
+
 
 ### Association
 
@@ -49,3 +55,13 @@
 - belongs_to :item
 - belongs_to :user
 
+### order テーブル
+
+| Column     | Type       | Options     |
+| item_id    | integer    | null: false |
+| user_id    | integer    | null: false |
+
+### Association
+
+has_one :user
+has_one :item
