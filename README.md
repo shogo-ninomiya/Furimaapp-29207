@@ -41,7 +41,7 @@
 | pref       | string     | null: false |
 | block      | string     | null: false |
 | building   | string     | null: true  |
-| tellphone  | integer    | null: false |
+| tellphone  | string     | null: false |
 | item_id    | integer    | null: false |
 | user_id    | integer    | null: false |
 
