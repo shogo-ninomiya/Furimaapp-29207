@@ -10,6 +10,10 @@ class ItemsController < ApplicationController
     Item.create(item_params)
   end
 
+  def checked
+    
+  end
+
 
 
   private
