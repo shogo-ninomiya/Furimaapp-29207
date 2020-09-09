@@ -7,63 +7,63 @@ RSpec.describe Item, type: :model do
   end
 
   describe '商品出品データの保存' do
-    context "出品データが保存できる場合" do
+    context '出品データが保存できる場合' do
       it '全ての項目が存在すれば登録できる' do
         expect(@item).to be_valid
       end
     end
 
-    context "商品出品データが保存できない場合" do
-      it "画像がないと保存できない" do
+    context '商品出品データが保存できない場合' do
+      it '画像がないと保存できない' do
         @item.image = nil
         @item.valid?
         expect(@item.errors.full_messages).to include("Image can't be blank")
-      end     
-      it "商品名がないと保存できない" do
-        @item.name = ""
+      end
+      it '商品名がないと保存できない' do
+        @item.name = ''
         @item.valid?
         expect(@item.errors.full_messages).to include("Name can't be blank")
       end
-      it "商品説明がないと保存できない" do
-        @item.comment = ""
+      it '商品説明がないと保存できない' do
+        @item.comment = ''
         @item.valid?
         expect(@item.errors.full_messages).to include("Comment can't be blank")
       end
-      it "カテゴリー選択がないと保存できない" do
-        @item.category_id = ""
+      it 'カテゴリー選択がないと保存できない' do
+        @item.category_id = ''
         @item.valid?
         expect(@item.errors.full_messages).to include("Category can't be blank")
       end
-      it "商品状態の選択がないと保存できない" do
-        @item.status_id  = ""
+      it '商品状態の選択がないと保存できない' do
+        @item.status_id = ''
         @item.valid?
         expect(@item.errors.full_messages).to include("Status can't be blank")
-      end 
-      it "配送料の負担の選択がないと保存できない" do
-        @item.delivery_id  = ""
+      end
+      it '配送料の負担の選択がないと保存できない' do
+        @item.delivery_id = ''
         @item.valid?
         expect(@item.errors.full_messages).to include("Delivery can't be blank")
-      end 
-      it "発送元地域の選択がないと保存できない" do
-        @item.area_id  = ""
+      end
+      it '発送元地域の選択がないと保存できない' do
+        @item.area_id = ''
         @item.valid?
         expect(@item.errors.full_messages).to include("Area can't be blank")
-      end 
-      it "金額の入力がないと保存できない" do
-        @item.day_id  = ""
+      end
+      it '金額の入力がないと保存できない' do
+        @item.day_id = ''
         @item.valid?
         expect(@item.errors.full_messages).to include("Day can't be blank")
-      end 
-      it "価格の範囲が¥300以上でないと保存できない" do
-        @item.price  = 200
+      end
+      it '価格の範囲が¥300以上でないと保存できない' do
+        @item.price = 200
         @item.valid?
-        expect(@item.errors.full_messages).to include("Price must be greater than or equal to 300")
-      end 
-      it "価格の範囲が¥9,999,999以下でないと保存できない" do
-        @item.price  = 10000000
+        expect(@item.errors.full_messages).to include('Price must be greater than or equal to 300')
+      end
+      it '価格の範囲が¥9,999,999以下でないと保存できない' do
+        @item.price = 10_000_000
         @item.valid?
-        expect(@item.errors.full_messages).to include("Price must be less than or equal to 9999999")
-      end 
+        expect(@item.errors.full_messages).to include('Price must be less than or equal to 9999999')
+      end
     end
   end
 end
