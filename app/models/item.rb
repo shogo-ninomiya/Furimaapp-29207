@@ -13,4 +13,7 @@ class Item < ApplicationRecord
   validates :area_id, presence: true
   validates :day_id, presence: true
   validates :image, presence: true
+
+
+  
 end
