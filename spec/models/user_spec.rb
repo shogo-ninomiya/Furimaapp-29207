@@ -26,7 +26,7 @@ RSpec.describe User, type: :model do
       it 'emailに＠を含まなければ登録できない' do
         @user.email = 'aaa.aaa.com'
         @user.valid?
-        expect(@user.errors.full_messages).to include("Email is invalid")
+        expect(@user.errors.full_messages).to include('Email is invalid')
       end
       it '重複したemailが存在する場合登録できないこと' do
         @user.save
@@ -55,7 +55,7 @@ RSpec.describe User, type: :model do
         @user.password = 'aaaaaa'
         @user.password_confirmation = 'aaaaaa'
         @user.valid?
-        expect(@user.errors.full_messages).to include("Password is invalid")
+        expect(@user.errors.full_messages).to include('Password is invalid')
       end
       it 'first_nameが空では登録できない' do
         @user.first_name = ''

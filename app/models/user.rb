@@ -4,9 +4,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  VALID_PASSWORD_REGEX = /(?=.*?[a-z])(?=.*?\d)[a-z\d]/
-  VALID_NAME_REGEX = /\A[一-龥]+\z/
-  VALID_NAME_KANA_REGEX = /\A[ァ-ヶー－]+\z/
+  VALID_PASSWORD_REGEX = /(?=.*?[a-z])(?=.*?\d)[a-z\d]/.freeze
+  VALID_NAME_REGEX = /\A[一-龥]+\z/.freeze
+  VALID_NAME_KANA_REGEX = /\A[ァ-ヶー－]+\z/.freeze
 
   validates :nickname, presence: true
   validates :password, presence: true, length: { minimum: 6 }, format: { with: VALID_PASSWORD_REGEX }, confirmation: true
@@ -15,4 +15,6 @@ class User < ApplicationRecord
   validates :first_name_kana, presence: true, format: { with: VALID_NAME_KANA_REGEX, message: 'Full-width katakana characters' }
   validates :last_name_kana, presence: true, format: { with: VALID_NAME_KANA_REGEX, message: 'Full-width katakana characters' }
   validates :birthday, presence: true
+
+  has_many :items
 end
