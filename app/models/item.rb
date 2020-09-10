@@ -9,7 +9,6 @@ class Item < ApplicationRecord
   belongs_to_active_hash :category
   belongs_to_active_hash :area
 
-
   VALID_PRICE_REGEX = /\A[-]?[0-9]+(\.[0-9]+)?\z/.freeze
 
   validates :name, presence: true
@@ -21,7 +20,4 @@ class Item < ApplicationRecord
   validates :area_id, presence: true
   validates :day_id, presence: true
   validates :image, presence: true
-
-
-  
 end
