@@ -1,6 +1,14 @@
 class Item < ApplicationRecord
+  extend ActiveHash::Associations::ActiveRecordExtensions
+
   belongs_to :user
   has_one_attached :image
+  belongs_to_active_hash :status
+  belongs_to_active_hash :delivery
+  belongs_to_active_hash :day
+  belongs_to_active_hash :category
+  belongs_to_active_hash :area
+
 
   VALID_PRICE_REGEX = /\A[-]?[0-9]+(\.[0-9]+)?\z/.freeze
 
