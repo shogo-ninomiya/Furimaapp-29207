@@ -11,13 +11,19 @@ class Item < ApplicationRecord
 
   VALID_PRICE_REGEX = /\A[-]?[0-9]+(\.[0-9]+)?\z/.freeze
 
-  validates :name, presence: true
-  validates :comment, presence: true
-  validates :price, presence: true, numericality: { less_than_or_equal_to: 9_999_999, greater_than_or_equal_to: 300 }, format: { with: VALID_PRICE_REGEX }
-  validates :category_id, numericality: { other_than: 1, message: "can't be blank"  }
-  validates :status_id, numericality: { other_than: 1, message: "can't be blank"  }
-  validates :delivery_id, numericality: { other_than: 1, message: "can't be blank"  }
-  validates :area_id, numericality: { other_than: 1, message: "can't be blank"  }
-  validates :day_id, numericality: { other_than: 1, message: "can't be blank"  }
-  validates :image, presence: true
+  with_options numericality: { other_than: 1, message: "can't be blank"  } do
+    validates :category_id
+    validates :status_id
+    validates :delivery_id
+    validates :area_id
+    validates :day_id
+  end
+
+  with_options presence: true do
+    validates :name
+    validates :comment
+    validates :price, numericality: { less_than_or_equal_to: 9_999_999, greater_than_or_equal_to: 300 }, format: { with: VALID_PRICE_REGEX }
+    validates :image
+  end
+  
 end
