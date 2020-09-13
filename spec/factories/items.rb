@@ -10,8 +10,5 @@ FactoryBot.define do
     day_id      {2}
     user_id     {2}
     association :user
-
-    # rspecでuserとのアソシエーションを組みましょう
-    # 検索がうまくヒットしない場合はfactorybot アソシエーションで調べましょう！
   end
 end
