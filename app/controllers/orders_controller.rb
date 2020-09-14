@@ -1,7 +1,12 @@
 class OrdersController < ApplicationController
   before_action :authenticate_user!, only: [:index]
-  before_action :move_to_index, except: [:index]
-  # before_actionにて二番の質問の回答
+  # ↑ログインされていなければ、ログイン画面に遷移する
+  before_action :move_to_index, only: [:index]
+  # ↑ログインされていなければ、トップページに遷移する
+  before_action :buy_out, only: [:index]
+
+
+  # user_signed_in? && current_user.id == @item.user_id
 
 
   def index 
@@ -16,8 +21,16 @@ class OrdersController < ApplicationController
   private
 
   def move_to_index
-    unless user_signed_in?
+    @item = Item.find(params[:item_id])
+    if user_signed_in? && current_user.id == @item.user_id
       redirect_to action: :root_path
+    end
+  end
+
+  def buy_out
+    @item = Item.find(params[:item_id])
+    if @item.order
+      redirect_to root_path
     end
   end
 end
