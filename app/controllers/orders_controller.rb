@@ -11,17 +11,21 @@ class OrdersController < ApplicationController
 
   def index 
     @item = Item.find(params[:item_id])
-    @order = Order.new
+    @order_address = OrderAddress.new
   end
+
+
 
   def create
     #form_objをつかって保存する動きをとる
-    @order = Order.new(order_params)
-    if @order.valid?
+    @order_address = OrderAddress.new(order_address_params)
+    @item = Item.find(params[:item_id])
+    if @order_address.valid?
       pay_item
-      @order.save
+      @order_address.save
       return redirect_to root_path
     else
+      @item = Item.find(params[:item_id])
       render 'index'
     end
   end
@@ -50,9 +54,13 @@ class OrdersController < ApplicationController
   def pay_item
     Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
     Payjp::Charge.create(
-      amount: order_params[:price],
+      amount: @item.price,
       card: order_params[:token],
       currency:'jpy'
     )
+  end
+
+  def order_address_params
+    params.permit(:item_id, :post_code, :prefecture_id, :city, :block, :building, :tellphone, :token).merge(user_id: current_user.id)
   end
 end

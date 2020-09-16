@@ -12,6 +12,8 @@ const pay = () => {
       exp_month: formData.get("exp_month"),
       exp_year: `20${formData.get("exp_year")}`,
     };
+
+
     Payjp.createToken(card, (status, response) => {
       if (status == 200) {
         const token = response.id;
@@ -23,10 +25,11 @@ const pay = () => {
       document.getElementById("cvc").removeAttribute("name");
       document.getElementById("exp_month").removeAttribute("name");
       document.getElementById("exp_year").removeAttribute("name");
-
       document.getElementById("charge-form").submit();
+      alert(("購入しました"))
       document.getElementById("charge-form").reset();
     });
+
   });
 };
 
