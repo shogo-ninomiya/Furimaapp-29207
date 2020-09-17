@@ -1,6 +1,7 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   before_action :set_item, only: [:edit, :show, :destroy]
+  # 購入ページに直接いけないように記述してやる
 
   def index
     @items = Item.all.order('created_at ASC')
