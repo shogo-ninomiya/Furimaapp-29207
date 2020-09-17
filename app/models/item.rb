@@ -2,6 +2,7 @@ class Item < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
 
   belongs_to :user
+  has_one :order
   has_one_attached :image
   belongs_to_active_hash :status
   belongs_to_active_hash :delivery
@@ -11,7 +12,7 @@ class Item < ApplicationRecord
 
   VALID_PRICE_REGEX = /\A[-]?[0-9]+(\.[0-9]+)?\z/.freeze
 
-  with_options numericality: { other_than: 1, message: "can't be blank"  } do
+  with_options numericality: { other_than: 1, message: "can't be blank" } do
     validates :category_id
     validates :status_id
     validates :delivery_id
