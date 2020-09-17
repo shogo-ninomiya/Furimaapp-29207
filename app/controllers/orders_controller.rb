@@ -4,9 +4,7 @@ class OrdersController < ApplicationController
   before_action :move_to_index, only: [:index]
   # ↑ログインされていなければ、トップページに遷移する
   before_action :buy_out, only: [:index]
-  # before_action :sell_item, only: [:index]
 
-  # user_signed_in? && current_user.id == @item.user_id
 
 
   def index
@@ -66,11 +64,5 @@ class OrdersController < ApplicationController
   def order_address_params
     params.permit(:item_id, :post_code, :prefecture_id, :city, :block, :building, :tellphone, :token).merge(user_id: current_user.id)
   end
-
-  # def sell_item
-  #   if Order.find(params[:item_id]).present?
-  #     redirect_to root_path
-  #   end
-  # end
 end
 
