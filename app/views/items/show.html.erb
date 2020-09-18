@@ -20,9 +20,15 @@
       <span class="item-price">
         <%= @item.price %>円
       </span>
-      <span class="item-postage">
-        (税込) 送料込み
-      </span>
+      <% if @item.delivery.id == 3 %>
+        <span class="item-postage">
+          (税込) 送料込み
+        </span>
+      <% else %>
+        <span class="item-postage">
+          (税込) 着払い
+        </span>
+      <% end %>
     </div>
 
     <% unless @item.order.present? %>
