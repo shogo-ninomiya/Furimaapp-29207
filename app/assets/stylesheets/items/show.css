@@ -161,7 +161,7 @@
   padding: 10px;
   font-size: 14px;
   margin: 10px 0px;
-  text-align: left;
+  text-align: center;
 }
 
 .comment-btn {
@@ -184,8 +184,8 @@
 .comment-flag-icon {
   margin: 10px 5px 0 0;
   position: absolute;
-  top: 188px;
-  left: 160px;
+  top: 189px;
+  left: 250px;
   z-index: 10px;
 }
 
