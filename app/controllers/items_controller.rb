@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
-  before_action :authenticate_user!, except: [:index, :show]
+  before_action :authenticate_user!, except: [:index, :show], unless: :test?
+  skip_before_action :authenticate_user! ,if: :test?
   before_action :set_item, only: [:edit, :show, :destroy]
   # 購入ページに直接いけないように記述してやる
 
@@ -54,5 +55,9 @@ class ItemsController < ApplicationController
 
   def set_item
     @item = Item.find(params[:id])
+  end
+
+  def test?
+    Rails.env.test?
   end
 end
