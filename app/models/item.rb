@@ -11,6 +11,14 @@ class Item < ApplicationRecord
   belongs_to_active_hash :category
   belongs_to_active_hash :area
 
+  def self.search(search)
+    if search != ""
+      Item.where('name LIKE ?', "%#{search}%")
+    else
+      Item.all
+    end
+  end
+
   VALID_PRICE_REGEX = /\A[-]?[0-9]+(\.[0-9]+)?\z/.freeze
 
   with_options numericality: { other_than: 1, message: "can't be blank" } do
