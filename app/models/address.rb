@@ -5,5 +5,4 @@ class Address < ApplicationRecord
   belongs_to_active_hash :prefecture
 
   attr_accessor :token
-
 end
