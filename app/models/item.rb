@@ -12,7 +12,7 @@ class Item < ApplicationRecord
   belongs_to_active_hash :area
 
   def self.search(search)
-    if search != ""
+    if search != ''
       Item.where('name LIKE ?', "%#{search}%")
     else
       Item.all
@@ -35,5 +35,4 @@ class Item < ApplicationRecord
     validates :price, numericality: { less_than_or_equal_to: 9_999_999, greater_than_or_equal_to: 300 }, format: { with: VALID_PRICE_REGEX }
     validates :image
   end
-  
 end

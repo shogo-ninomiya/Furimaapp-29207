@@ -8,7 +8,6 @@ RSpec.describe Comment, type: :model do
     @item.save
     @comment = FactoryBot.build(:comment, item_id: @item.id, user_id: @user.id)
     # @comments = FactoryBot.build(:comment,comment_id:@comment.id)
-
   end
 
   describe 'コメント新規投稿' do

@@ -30,27 +30,27 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include("Comment can't be blank")
       end
       it 'カテゴリー選択がないと保存できない' do
-        @item.category_id = "1"
+        @item.category_id = '1'
         @item.valid?
         expect(@item.errors.full_messages).to include("Category can't be blank")
       end
       it '商品状態の選択がないと保存できない' do
-        @item.status_id = "1"
+        @item.status_id = '1'
         @item.valid?
         expect(@item.errors.full_messages).to include("Status can't be blank")
       end
       it '配送料の負担の選択がないと保存できない' do
-        @item.delivery_id = "1"
+        @item.delivery_id = '1'
         @item.valid?
         expect(@item.errors.full_messages).to include("Delivery can't be blank")
       end
       it '発送元地域の選択がないと保存できない' do
-        @item.area_id = "1"
+        @item.area_id = '1'
         @item.valid?
         expect(@item.errors.full_messages).to include("Area can't be blank")
       end
       it '発送日の選択がないと保存できない' do
-        @item.day_id = "1"
+        @item.day_id = '1'
         @item.valid?
         expect(@item.errors.full_messages).to include("Day can't be blank")
       end
