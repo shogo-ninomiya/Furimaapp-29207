@@ -26,7 +26,6 @@ const pay = () => {
       document.getElementById("exp_month").removeAttribute("name");
       document.getElementById("exp_year").removeAttribute("name");
       document.getElementById("charge-form").submit();
-      alert(("購入しました"))
       document.getElementById("charge-form").reset();
     });
 
