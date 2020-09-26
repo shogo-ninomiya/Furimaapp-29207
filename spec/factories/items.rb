@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :item do
-    name        { 'サンプル' }
-    comment     { 'sample' }
+    name        { Faker::Name.initials(number: 2) }
+    comment     { Faker::Lorem.sentence }
     price       { 2000 }
     category_id { 2 }
     status_id   { 2}
