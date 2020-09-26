@@ -208,3 +208,6 @@ RSpec.describe 'アイテム削除', type: :system do
 
   # 検索機能の結合テストやること
 end
+
+
+
