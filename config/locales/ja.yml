@@ -11,3 +11,13 @@ ja:
       item:
         text: テキスト
         image: 画像
+  activemodel:
+    attributes:
+      order_address:
+        post_code: 郵便番号
+        prefecture_id: 都道府県
+        city: 市区町村
+        block: 番地
+        building: 建物名
+        tellphone: 電話番号
+        token: クレジット情報
