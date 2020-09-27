@@ -20,7 +20,7 @@ RSpec.describe OrderAddress, type: :model do
       it 'post_codeが空だと保存できないこと' do
         @order_address.post_code = ''
         @order_address.valid?
-        expect(@order_address.errors.full_messages).to include("郵便番号を入力してください")
+        expect(@order_address.errors.full_messages).to include('郵便番号を入力してください')
       end
       it 'post_codeにハイフンがないと保存できないこと' do
         @order_address.post_code = '1111111'
@@ -35,22 +35,22 @@ RSpec.describe OrderAddress, type: :model do
       it 'prefecture_idが1だと保存できないこと' do
         @order_address.prefecture_id = '1'
         @order_address.valid?
-        expect(@order_address.errors.full_messages).to include("都道府県を入力してください")
+        expect(@order_address.errors.full_messages).to include('都道府県を入力してください')
       end
       it 'cityが空だと保存できないこと' do
         @order_address.city = ''
         @order_address.valid?
-        expect(@order_address.errors.full_messages).to include("市区町村を入力してください")
+        expect(@order_address.errors.full_messages).to include('市区町村を入力してください')
       end
       it 'blockが空だと保存できないこと' do
         @order_address.block = ''
         @order_address.valid?
-        expect(@order_address.errors.full_messages).to include("番地を入力してください")
+        expect(@order_address.errors.full_messages).to include('番地を入力してください')
       end
       it 'tellphoneが空だと保存できないこと' do
         @order_address.tellphone = ''
         @order_address.valid?
-        expect(@order_address.errors.full_messages).to include("電話番号を入力してください")
+        expect(@order_address.errors.full_messages).to include('電話番号を入力してください')
       end
       it 'tellphoneが10桁か11桁以外だと保存できないこと' do
         @order_address.tellphone = '000000000'
@@ -65,7 +65,7 @@ RSpec.describe OrderAddress, type: :model do
       it 'tokenが空だと保存できないこと' do
         @order_address.token = ''
         @order_address.valid?
-        expect(@order_address.errors.full_messages).to include("クレジット情報を入力してください")
+        expect(@order_address.errors.full_messages).to include('クレジット情報を入力してください')
       end
     end
   end

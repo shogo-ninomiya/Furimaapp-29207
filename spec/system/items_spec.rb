@@ -3,12 +3,12 @@ require 'rails_helper'
 RSpec.describe 'ツイート投稿', type: :system do
   before do
     @user = FactoryBot.create(:user)
-    @item_name = "テスト商品名"
-    @item_comment = "テスト商品紹介"
-    @price = "3000"
+    @item_name = 'テスト商品名'
+    @item_comment = 'テスト商品紹介'
+    @price = '3000'
   end
-  
-  context 'アイテム出品ができるとき'do
+
+  context 'アイテム出品ができるとき' do
     it 'ログインしたユーザーは新規投稿できる' do
       # ログインする
       visit new_user_session_path
@@ -28,16 +28,16 @@ RSpec.describe 'ツイート投稿', type: :system do
       # フォームに情報を入力する
       fill_in 'item-name', with: @item_name
       fill_in 'item-info', with: @item_comment
-      select "レディース", from: "item-category"
-      select "未使用に近い", from: "item-sales-status"
-      select "着払い(購入者負担)", from: "item-shipping-fee-status"
-      select "北海道", from: "item-prefecture"
-      select "1〜2日で発送", from: "item-scheduled-delivery"
+      select 'レディース', from: 'item-category'
+      select '未使用に近い', from: 'item-sales-status'
+      select '着払い(購入者負担)', from: 'item-shipping-fee-status'
+      select '北海道', from: 'item-prefecture'
+      select '1〜2日で発送', from: 'item-scheduled-delivery'
       fill_in 'item-price', with: @price
       # 出品するとitemモデルのカウントが1上がることを確認する
-      expect{
+      expect  do
         find('input[name="commit"]').click
-      }.to change { Item.count }.by(1)
+      end.to change { Item.count }.by(1)
       # トップページに遷移することを確認する
       expect(current_path).to eq root_path
       # トップページには先ほど出品した内容の商品が存在することを確認する（名前）
@@ -47,13 +47,13 @@ RSpec.describe 'ツイート投稿', type: :system do
     end
   end
 
-  context 'アイテム出品ができないとき'do
+  context 'アイテム出品ができないとき' do
     it 'ログインしていないと新規出品ページに遷移できない' do
       # トップページに遷移する
       visit root_path
       # 新規投稿ページへのリンクがあることを確認しボタンを押す
       expect(page).to have_content('出品する')
-      find(".purchase-btn-icon").click
+      find('.purchase-btn-icon').click
       # ログインページへ遷移されることを確認する
       expect(current_path).to eq new_user_session_path
     end
@@ -106,11 +106,11 @@ RSpec.describe 'アイテム編集', type: :system do
       # 投稿内容を編集する
       fill_in 'item-name', with: "#{@item1.name}+テストname"
       fill_in 'item-info', with: "#{@item1.comment}+テストcomment"
-      fill_in 'item-price', with: "4000000"
+      fill_in 'item-price', with: '4000000'
       # 編集してもItemモデルのカウントは変わらないことを確認する
-      expect{
+      expect  do
         find('input[name="commit"]').click
-      }.to change { Item.count }.by(0)
+      end.to change { Item.count }.by(0)
       # アイテム詳細画面に遷移する
       expect(current_path).to eq item_path(@item1)
       # ページには先ほど変更した内容のアイテムが存在することを確認する（名前）
@@ -118,7 +118,7 @@ RSpec.describe 'アイテム編集', type: :system do
       # ページには先ほど変更した内容のアイテムが存在することを確認する（コメント）
       expect(page).to have_content("#{@item1.comment}+テストcomment")
       # ページには先ほど変更した内容のアイテムが存在することを確認する（金額）
-      expect(page).to have_content("4000000")
+      expect(page).to have_content('4000000')
     end
   end
 
@@ -167,15 +167,15 @@ RSpec.describe 'アイテム削除', type: :system do
       # 出品した商品の画像をクリックし、詳細ページへ遷移する
       find(:xpath, "//a[@href='/items/#{@item1.id}']").click
       # 画面に「削除」ボタンがあることを確認し、ボタンを押すと削除が完了する。モデルのカウントも1減っていることを確認。
-      expect{
-      find_link('削除', href: item_path(@item1)).click
-      }.to change { Item.count }.by(-1)
+      expect do
+        find_link('削除', href: item_path(@item1)).click
+      end.to change { Item.count }.by(-1)
       # # トップページに遷移する
       expect(current_path).to eq root_path
       # # ページには先ほど変更した内容のアイテムが存在しないことを確認する（名前）
-      expect(page).to have_no_content("#{@item1.name}")
+      expect(page).to have_no_content(@item1.name.to_s)
       # # ページには先ほど変更した内容のアイテムが存在しないことを確認する（金額）
-      expect(page).to have_no_content("#{@item1.comment}")
+      expect(page).to have_no_content(@item1.comment.to_s)
     end
   end
 
@@ -208,6 +208,3 @@ RSpec.describe 'アイテム削除', type: :system do
 
   # 検索機能の結合テストやること
 end
-
-
-
