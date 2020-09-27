@@ -53,49 +53,49 @@ RSpec.describe 'Items', type: :request do
     end
   end
 
-  # describe "GET /new" do
-  #   it "showアクションにリクエストすると正常にレスポンスが返ってくる" do
-  #     get new_item_path(@item)
-  #     expect(response.status).to eq 200
-  #   end
-  #   it "showアクションにリクエストするとレスポンスに画像投稿フォームが存在する" do
-  #     get new_item_path(@item)
-  #     expect(response.body).to include "クリックしてファイルをアップロード"
-  #   end
-  #   it "showアクションにリクエストするとレスポンスにアイテムの名前入力フォームが存在する" do
-  #     get new_item_path(@item)
-  #     expect(response.body).to include "商品名"
-  #   end
-  #   it "showアクションにリクエストするとレスポンスにアイテムの説明入力フォームが存在する" do
-  #     get new_item_path(@item)
-  #     expect(response.body).to include "商品の説明"
-  #   end
-  #   it "showアクションにリクエストするとレスポンスにアイテムの詳細洗濯フォームが存在する" do
-  #     get new_item_path(@item)
-  #     expect(response.body).to include "商品の詳細"
-  #   end
-  # end
+  describe "GET /new" do
+    it "showアクションにリクエストすると正常にレスポンスが返ってくる" do
+      get new_item_path(@item)
+      expect(response.status).to eq 200
+    end
+    it "showアクションにリクエストするとレスポンスに画像投稿フォームが存在する" do
+      get new_item_path(@item)
+      expect(response.body).to include "クリックしてファイルをアップロード"
+    end
+    it "showアクションにリクエストするとレスポンスにアイテムの名前入力フォームが存在する" do
+      get new_item_path(@item)
+      expect(response.body).to include "商品名"
+    end
+    it "showアクションにリクエストするとレスポンスにアイテムの説明入力フォームが存在する" do
+      get new_item_path(@item)
+      expect(response.body).to include "商品の説明"
+    end
+    it "showアクションにリクエストするとレスポンスにアイテムの詳細洗濯フォームが存在する" do
+      get new_item_path(@item)
+      expect(response.body).to include "商品の詳細"
+    end
+  end
 
-  # describe "GET /edit" do
-  #   it "editアクションにリクエストすると正常にレスポンスが返ってくる" do
-  #     get new_item_path(@item)
-  #     expect(response.status).to eq 200
-  #   end
-  #   it "editアクションにリクエストするとレスポンスに画像投稿フォームが存在する" do
-  #     get new_item_path(@item)
-  #     expect(response.body).to include "クリックしてファイルをアップロード"
-  #   end
-  #   it "editアクションにリクエストするとレスポンスにアイテムの名前入力フォームが存在する" do
-  #     get new_item_path(@item)
-  #     expect(response.body).to include "商品名"
-  #   end
-  #   it "editアクションにリクエストするとレスポンスにアイテムの説明入力フォームが存在する" do
-  #     get new_item_path(@item)
-  #     expect(response.body).to include "商品の説明"
-  #   end
-  #   it "editアクションにリクエストするとレスポンスにアイテムの詳細洗濯フォームが存在する" do
-  #     get new_item_path(@item)
-  #     expect(response.body).to include "商品の詳細"
-  #   end
-  # end
+  describe "GET /edit" do
+    it "editアクションにリクエストすると正常にレスポンスが返ってくる" do
+      get new_item_path(@item)
+      expect(response.status).to eq 200
+    end
+    it "editアクションにリクエストするとレスポンスに画像投稿フォームが存在する" do
+      get new_item_path(@item)
+      expect(response.body).to include "クリックしてファイルをアップロード"
+    end
+    it "editアクションにリクエストするとレスポンスにアイテムの名前入力フォームが存在する" do
+      get new_item_path(@item)
+      expect(response.body).to include "商品名"
+    end
+    it "editアクションにリクエストするとレスポンスにアイテムの説明入力フォームが存在する" do
+      get new_item_path(@item)
+      expect(response.body).to include "商品の説明"
+    end
+    it "editアクションにリクエストするとレスポンスにアイテムの詳細洗濯フォームが存在する" do
+      get new_item_path(@item)
+      expect(response.body).to include "商品の詳細"
+    end
+  end
 end
