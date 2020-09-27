@@ -11,10 +11,10 @@ class User < ApplicationRecord
   with_options presence: true do
     validates :nickname
     validates :password, length: { minimum: 6 }, format: { with: VALID_PASSWORD_REGEX }, confirmation: true
-    validates :first_name, format: { with: VALID_NAME_REGEX, message: 'Full-width characters' }
-    validates :last_name, format: { with: VALID_NAME_REGEX, message: 'Full-width characters' }
-    validates :first_name_kana, format: { with: VALID_NAME_KANA_REGEX, message: 'Full-width katakana characters' }
-    validates :last_name_kana, format: { with: VALID_NAME_KANA_REGEX, message: 'Full-width katakana characters' }
+    validates :first_name, format: { with: VALID_NAME_REGEX, message: 'は全角で入力してください' }
+    validates :last_name, format: { with: VALID_NAME_REGEX, message: 'は全角で入力してください' }
+    validates :first_name_kana, format: { with: VALID_NAME_KANA_REGEX, message: 'は全角カタカナで入力してください' }
+    validates :last_name_kana, format: { with: VALID_NAME_KANA_REGEX, message: 'は全角カタカナで入力してください' }
     validates :birthday
   end
 
