@@ -11,6 +11,14 @@ ja:
       item:
         text: テキスト
         image: 画像
+        category_id: カテゴリー
+        status_id: 商品の状態 
+        delivery_id: 配送料の負担
+        area_id: 発送元の地域
+        day_id: 発送までの日数
+        name: 商品名
+        comment: 商品の説明
+        price: 価格
   activemodel:
     attributes:
       order_address:
