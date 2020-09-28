@@ -70,7 +70,7 @@
     <div class="option">
       <div class="favorite-btn">
         <%= image_tag "star.png" ,class:"favorite-star-icon" ,width:"20",height:"20"%>
-        <span>お気に入り 0</span>
+        <%= link_to "お気に入り", "/users/#{@item.user.id}" , class: "user-nickname" %>
       </div>
       <div class="report-btn">
         <%= image_tag "flag.png" ,class:"report-flag-icon" ,width:"20",height:"20"%>
