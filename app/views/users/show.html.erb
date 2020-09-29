@@ -1,13 +1,47 @@
 <%= render "shared/header" %>
+<br>
+<br>
+<br>
 
 <div class="contents row">
+<%#  %>
 <p><%= @nickname %>さんの出品一覧</p>
-  <ul class='item-lists'>
-    <% @items.each do |item| %>
-      <%= render partial: "shared/item", locals: { item: item } %>
-    <% end %>
-  </ul>
+<br>
+  <% if @items.present? %>
+    <ul class='item-lists'>
+      <% @items&.each do |item| %>
+        <%= render partial: "shared/item", locals: { item: item } %>
+      <% end %>
+    </ul>
+  <% else %>
+  <br>
+    <p>出品している商品はありません。<p>
+  <% end %>
 </div>
+
+<br>
+<br>
+<p>--------------------------------------------------------------------------------------------------------------------------------------------</p>
+<br>
+<br>
+
+<div class="contents row">
+<p><%= @nickname %>さんのお気に入り一覧</p>
+<br>
+  <% if @user.likes.present? %>
+    <ul class='item-lists'>
+      <% @user.likes.each do |like| %>
+        <%= render partial: "shared/like", locals: { like: like } %>
+      <% end %>
+    </ul>
+  <% else %>
+  <br>
+    <p>お気に入りに登録している商品はありません。<p>
+  <% end %>
+</div>
+<br>
+<br>
+<br>
 
 
 <%= render "shared/footer" %>

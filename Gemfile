@@ -73,4 +73,4 @@ gem 'image_processing', '~> 1.2'
 gem 'payjp'
 gem "gretel"
 gem 'rails-i18n'
-
+gem 'jquery-rails'

@@ -1,0 +1,15 @@
+  <% if user_signed_in? %>
+    <% if @item.liked_by?(current_user) %>
+        <%= link_to "/items/#{@item.id}/likes/#{@item.likes.ids}", method: :delete, remote: true, id: "like-button-#{@item.id}" do %>
+        お気に入りを解除する
+          <i class="fa-lg fas fa-heart icon-btn liked"></i>
+      <% end %>
+    <% else %>
+      <%= link_to item_likes_path(@item.id), method: :post, remote: true, id: "like-button-#{@item.id}" do %>
+      お気に入りに追加する   
+        <i class="fa-lg fas fa-heart icon-btn not-like"></i>
+      <% end %>
+    <% end %>
+  <% else %>
+    <%= link_to 'ログインする', new_user_session_path, class: "login" %>
+  <% end %>

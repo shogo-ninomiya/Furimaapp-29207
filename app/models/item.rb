@@ -10,6 +10,12 @@ class Item < ApplicationRecord
   belongs_to_active_hash :day
   belongs_to_active_hash :category
   belongs_to_active_hash :area
+  has_many :likes
+  has_many :users, through: :likes
+
+  def liked_by?(user)
+    likes.where(user_id: user.id).exists?
+  end
 
   def self.search(search)
     if search != ''
